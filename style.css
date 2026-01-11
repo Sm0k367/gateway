@@ -1,0 +1,79 @@
+/* --- AETHER-MORPH: VISUAL PROTOCOL --- */
+:root {
+    --cyan: #00f2ff;
+    --deep-blue: #001a1d;
+    --black: #050505;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--black);
+    color: #fff;
+    overflow: hidden;
+    cursor: crosshair; /* Makes the user feel like a precision architect */
+}
+
+/* --- THE CORE INITIALIZER --- */
+#setup-overlay {
+    background: radial-gradient(circle at center, #0a0a0a 0%, #050505 100%);
+}
+
+#drop-zone {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 242, 255, 0.05);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#drop-zone:hover {
+    box-shadow: 0 0 80px rgba(0, 242, 255, 0.15), inset 0 0 30px rgba(0, 242, 255, 0.1);
+    transform: scale(1.02);
+}
+
+/* --- THE FLUID INTERFACE --- */
+#interface {
+    background: var(--black);
+}
+
+/* Glass Panels */
+.pointer-events-auto {
+    pointer-events: auto;
+}
+
+/* Telemetry Text Styling */
+#hz-display {
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+/* Scanning Line Effect (Subtle) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 2px, 3px 100%;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Smooth entry scaling */
+.scale-110 {
+    transform: scale(1.1);
+}
+
+.scale-100 {
+    transform: scale(1);
+}
+
+/* Responsive Font Adjustments */
+@media (max-width: 768px) {
+    h1 { font-size: 3rem !important; }
+}
