@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHER-MORPH // EPIC TECH AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#050505] text-white overflow-hidden font-['Space+Grotesk']">
+
+    <div id="setup-overlay" class="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-[#050505] transition-all duration-1000">
+        <div class="mb-12 text-center">
+            <h1 class="text-6xl md:text-8xl font-bold tracking-tighter uppercase italic font-['Syncopate']">
+                AETHER<span class="text-[#00f2ff]">MORPH</span>
+            </h1>
+            <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent my-4"></div>
+            <p class="text-[10px] tracking-[1em] text-cyan-500/50 uppercase">Next-Gen Multimedia Intelligence</p>
+        </div>
+
+        <div id="drop-zone" class="group relative w-72 h-72 rounded-full border border-white/10 flex items-center justify-center overflow-hidden hover:border-cyan-400 transition-all duration-700 bg-white/5 backdrop-blur-sm">
+            <div class="absolute inset-0 bg-cyan-500/5 scale-0 group-hover:scale-100 transition-transform duration-700 rounded-full"></div>
+            <p id="status-text" class="text-[9px] uppercase tracking-[0.3em] text-gray-400 z-10 text-center px-8">Feed the Machine<br><span class="text-[8px] opacity-50 mt-2 block">(Audio File)</span></p>
+            <input type="file" id="audio-input" accept="audio/*" class="absolute inset-0 opacity-0 cursor-pointer z-20">
+        </div>
+
+        <button id="launch-btn" class="hidden mt-10 px-16 py-5 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-500 uppercase tracking-[0.5em] text-[10px] font-bold">
+            Initialize Aether
+        </button>
+    </div>
+
+    <main id="interface" class="relative w-screen h-screen opacity-0 scale-110 transition-all duration-[3000ms]">
+        <canvas id="aether-canvas" class="absolute inset-0 z-0"></canvas>
+        
+        <div class="absolute inset-0 z-10 pointer-events-none p-10 flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+                <div class="pointer-events-auto">
+                    <h2 class="text-xl font-bold font-['Syncopate'] italic tracking-tighter text-white">@SM0KEN420</h2>
+                    <p class="text-[8px] text-cyan-500 tracking-[0.4em] uppercase">Status: Architect</p>
+                </div>
+                <div class="text-right pointer-events-auto font-mono text-[8px] text-white/30 space-y-1">
+                    <p>LATENCY: 0.4MS</p>
+                    <p id="hz-display">STIM: 0.00%</p>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-end pointer-events-auto">
+                <div class="space-y-4">
+                    <div class="h-48 w-[1px] bg-gradient-to-t from-cyan-500 to-transparent"></div>
+                    <div class="flex gap-4">
+                        <a href="https://x.com/i/communities/1763463136298807762" target="_blank" class="text-[8px] tracking-widest uppercase hover:text-cyan-400 transition-colors">Collective</a>
+                        <a href="https://intercom-bay.vercel.app" target="_blank" class="text-[8px] tracking-widest uppercase hover:text-cyan-400 transition-colors">Thoughts</a>
+                    </div>
+                </div>
+                <div class="text-[8px] text-white/20 uppercase tracking-widest">
+                    Liquid-State Visualizer v4.0
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
