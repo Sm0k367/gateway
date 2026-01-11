@@ -1,8 +1,9 @@
-/* --- AETHER-MORPH // OVERDRIVE UI --- */
+/* --- SM0KEN420 ARCHITECTURES // VISUAL PROTOCOL --- */
 :root {
     --cyan: #00f2ff;
-    --black: #050505;
-    --neon-glow: 0 0 15px rgba(0, 242, 255, 0.4);
+    --black: #020202;
+    --panel-bg: rgba(255, 255, 255, 0.02);
+    --glow: 0 0 20px rgba(0, 242, 255, 0.3);
 }
 
 * {
@@ -18,52 +19,71 @@ body {
     cursor: crosshair;
 }
 
-/* --- THE CORE --- */
+/* --- THE INITIALIZER CORE --- */
 #setup-overlay {
-    background: radial-gradient(circle at center, #0a0a0a 0%, #050505 100%);
+    background: radial-gradient(circle at center, #0a0a0a 0%, #020202 100%);
 }
 
 #drop-zone {
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 242, 255, 0.05);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(0, 242, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* --- HUD OVERDRIVE --- */
-#hz-display {
-    text-shadow: var(--neon-glow);
-    letter-spacing: 0.2em;
+#drop-zone:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 60px rgba(0, 242, 255, 0.1), inset 0 0 20px rgba(0, 242, 255, 0.05);
 }
 
-/* Neon Vertical Accents */
-.h-48 {
-    box-shadow: var(--neon-glow);
+/* --- HUD & COMMAND CENTER --- */
+#interface {
+    background: var(--black);
 }
 
-/* The scanning line effect is sharpened for post-processing */
+.backdrop-blur-md {
+    backdrop-filter: blur(20px);
+}
+
+/* Vertical and Horizontal Architectural Accents */
+.h-40 {
+    box-shadow: var(--glow);
+}
+
+/* SCANNING OVERLAY (The "1000x" Detail) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-image: 
+        linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* VIGNETTE */
 body::before {
     content: "";
     position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-    background-size: 100% 4px;
-    z-index: 100;
+    background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.8) 100%);
+    z-index: 6;
     pointer-events: none;
-    opacity: 0.2;
 }
 
-/* Links Hover */
-a:hover {
-    text-shadow: var(--neon-glow);
-    color: var(--cyan);
+#hz-display {
+    text-shadow: 0 0 10px var(--cyan);
 }
 
-/* Launch Button Pulse */
+/* ANIMATIONS */
+@keyframes pulse-border {
+    0% { border-color: rgba(0, 242, 255, 0.2); }
+    50% { border-color: rgba(0, 242, 255, 0.5); }
+    100% { border-color: rgba(0, 242, 255, 0.2); }
+}
+
 #launch-btn {
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
-}
-
-#launch-btn:hover {
-    box-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
-    transform: translateY(-2px);
+    animation: pulse-border 2s infinite;
 }
