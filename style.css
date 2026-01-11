@@ -1,4 +1,4 @@
-/* --- EPIC TECH AI // AFTER DARK STYLE PROTOCOL --- */
+/* --- EPIC TECH AI // HIGH-CONTRAST AFTER DARK --- */
 :root {
     --cyan: #00f2ff;
     --magenta: #ff00ff;
@@ -24,13 +24,14 @@ body {
 }
 
 #drop-zone {
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 242, 255, 0.05);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 1), inset 0 0 30px rgba(0, 242, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 #drop-zone:hover {
     border-color: var(--cyan);
-    box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+    box-shadow: 0 0 50px var(--cyan);
+    background: rgba(0, 242, 255, 0.05);
 }
 
 /* --- THE TUNNEL HUD --- */
@@ -38,47 +39,41 @@ body {
     background: var(--black);
 }
 
-/* Deep Field Mask: Keeps the center of the tunnel sharp */
+/* Deep Field Mask: We've made this darker to help text visibility */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle, transparent 25%, rgba(0,0,0,0.9) 100%);
+    background: radial-gradient(circle, transparent 15%, rgba(0,0,0,0.95) 100%);
     pointer-events: none;
     z-index: 5;
 }
 
-/* Scanline HUD effect */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-    background-size: 100% 4px;
-    z-index: 6;
-    pointer-events: none;
-    opacity: 0.3;
+/* Neon Glow for HUD Text */
+h1, h2, #hz-display {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px var(--cyan);
 }
 
-#hz-display {
-    text-shadow: 0 0 10px var(--magenta);
-    letter-spacing: 0.1em;
+.text-magenta-500 {
+    text-shadow: 0 0 15px var(--magenta);
 }
 
-/* Link Aesthetics */
+/* Link Visibility Overdrive */
+a {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 a:hover {
     color: var(--cyan);
-    text-shadow: 0 0 8px var(--cyan);
-    letter-spacing: 0.5em;
-    transition: all 0.4s ease;
+    text-shadow: 0 0 20px var(--cyan);
+    transform: scale(1.1);
+}
+
+/* UI Accent Lines */
+.border-l-8 {
+    box-shadow: -10px 0 30px rgba(255, 0, 255, 0.4);
 }
 
 #launch-btn {
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
-}
-
-#launch-btn:hover {
-    box-shadow: 0 0 40px var(--cyan);
-    background: var(--cyan);
-    color: black;
+    text-shadow: 0 0 10px var(--cyan);
 }
